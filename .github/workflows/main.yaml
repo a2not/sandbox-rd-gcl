@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: reviewdog/action-golang-cilint@v2
+      - uses: reviewdog/action-golangci-lint@v2
         with:
           golangci_lint_flags: "--verbose"
           reviewdog_flags: '-fail-level=any'
