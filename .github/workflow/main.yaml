@@ -1,0 +1,16 @@
+name: reviewdog golangci-lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rd-gcl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: reviewdog/action-golang-cilint@v2
+        with:
+          golangci_lint_flags: "--verbose"
+          reviewdog_flags: '-fail-level=any'
+          reporter: github-check
