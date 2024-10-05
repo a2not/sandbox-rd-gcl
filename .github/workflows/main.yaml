@@ -7,12 +7,9 @@ on:
 jobs:
   rd-gcl:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
     steps:
       - uses: actions/checkout@v4
-      - uses: reviewdog/action-golangci-lint@v2
-        with:
-          cache: false
-          fail_on_error: true
-          golangci_lint_flags: "--verbose"
-          reviewdog_flags: '-fail-level=any'
-          reporter: github-check
+      - uses: golangci/golangci-lint-action@v6
