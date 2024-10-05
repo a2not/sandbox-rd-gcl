@@ -10,7 +10,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: reviewdog/action-golangci-lint@v2
         with:
-          level: any
+          filter_mode: nofilter
           golangci_lint_flags: "--verbose"
-          reviewdog_flags: '-fail-level=any'
+          fail_on_error: true
+          # level: any
+          # reviewdog_flags: '-fail-level=any'
           reporter: github-pr-check
